@@ -7,12 +7,86 @@
     <link rel="stylesheet" href="Assets/css/style.css" />
     <!--Favicon-->
     <link rel="icon" href="Assets/favicon/escucha.png" type="image/x-icon" />
-    <title>Dashboard Interactivo</title>
+    <!--Chart.js-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <title>Dashboard TechTrends - Análisis de Ventas</title>
   </head>
   <body>
-    <!-- SCRIPTS DE JAVASCRIPT -->
-    <script src="Assets/js/script.js"></script>
-    <!-- Biblioteca Chart.js -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.5.0/chart.js"></script>
+    <div class="container">
+      <!-- Header -->
+      <header class="header">
+        <h1>🚀 TechTrends Dashboard</h1>
+        <p>Análisis de Ventas - E-commerce</p>
+      </header>
+
+      <!-- Filtros -->
+      <section class="filters">
+        <div class="filter-group">
+          <label for="dateFrom">Fecha Desde:</label>
+          <input type="date" id="dateFrom" />
+        </div>
+        <div class="filter-group">
+          <label for="dateTo">Fecha Hasta:</label>
+          <input type="date" id="dateTo" />
+        </div>
+        <div class="filter-group">
+          <label for="categoryFilter">Categoría:</label>
+          <select id="categoryFilter">
+            <option value="all">Todas</option>
+            <!-- Se llenarán dinámicamente -->
+          </select>
+        </div>
+        <button id="applyFilters">Aplicar Filtros</button>
+        <button id="resetFilters">Resetear</button>
+      </section>
+
+      <!-- KPIs -->
+      <section class="kpis">
+        <div class="kpi-card">
+          <h3>Ventas Totales</h3>
+          <p class="kpi-value" id="totalSales">$0</p>
+        </div>
+        <div class="kpi-card">
+          <h3>Productos Vendidos</h3>
+          <p class="kpi-value" id="totalProducts">0</p>
+        </div>
+        <div class="kpi-card">
+          <h3>Transacciones</h3>
+          <p class="kpi-value" id="totalTransactions">0</p>
+        </div>
+        <div class="kpi-card">
+          <h3>Ticket Promedio</h3>
+          <p class="kpi-value" id="avgTicket">$0</p>
+        </div>
+      </section>
+
+      <!-- Gráficos -->
+      <section class="charts">
+        <div class="chart-container">
+          <h3>Ventas Mensuales</h3>
+          <canvas id="monthlySalesChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h3>Top 5 Productos</h3>
+          <canvas id="topProductsChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h3>Métodos de Pago</h3>
+          <canvas id="paymentMethodsChart"></canvas>
+        </div>
+        <div class="chart-container">
+          <h3>Ventas por Región</h3>
+          <canvas id="regionSalesChart"></canvas>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <p>Dashboard creado para TechTrends E-commerce | 2025</p>
+      </footer>
+    </div>
+
+    <script src="Assets/js/data.js"></script>
+    <script src="Assets/js/charts.js"></script>
   </body>
 </html>
